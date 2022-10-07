@@ -2,6 +2,28 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\ProjekController;
+use App\Http\Controllers\DokumenController;
+
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\HebahanController;
+use App\Http\Controllers\IntegrasiController;
+use App\Http\Controllers\MaklumBalasController;
+use App\Http\Controllers\ManualController;
+
+use App\Http\Controllers\BangunanPenilaianController;
+use App\Http\Controllers\GPSSPenilaianController;
+use App\Http\Controllers\JalanPenilaianController;
+
+use App\Http\Controllers\BangunanVerifikasiController;
+use App\Http\Controllers\GPSSVerifikasiController;
+use App\Http\Controllers\JalanVerifikasiController;
+
+use App\Http\Controllers\BangunanValidasiController;
+
+
 
 
 Route::middleware(['auth'])->group(function () {
