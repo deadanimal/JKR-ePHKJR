@@ -23,6 +23,12 @@ class FaqController extends Controller
 
         $faq->save();
         $url = '/faq/'.$faq->id;
+
+        activity()
+            ->performedOn($faq)
+            ->causedBy($user)
+            ->log('FAQ dicipta');
+
         return Redirect($url);
     }
 
@@ -32,6 +38,12 @@ class FaqController extends Controller
 
         $faq->save();
         $url = '/faq/'.$faq->id;
+
+        activity()
+            ->performedOn($faq)
+            ->causedBy($user)
+            ->log('FAQ diubah');
+
         return Redirect($url);        
     }    
 

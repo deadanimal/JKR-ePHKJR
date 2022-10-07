@@ -25,77 +25,79 @@ use App\Http\Controllers\BangunanValidasiController;
 
 
 
-Route::middleware([])->group(function () {
-// Route::middleware(['auth'])->group(function () {
-    
-    Route::get('/', [PenggunaController::class, 'tunjuk_home']);
-    
-    Route::get('profile', [PenggunaController::class, 'tunjuk_profil']);
-    Route::get('profile/senarai', [PenggunaController::class, 'tunjuk_senarai_profil']);
-    Route::put('profile/{id}/peranan', [PenggunaController::class, 'tukar_peranan']);
-    Route::get('profile/senarai-tukar-peranan', [PenggunaController::class, 'tunjuk_senarai_tukar_peranan']);
 
-    
-    Route::get('projek', [ProjekController::class, 'tunjuk_senarai_projek']);
-    Route::post('projek', [ProjekController::class, 'cipta_projek']);
-    Route::get('projek/{id}', [ProjekController::class, 'tunjuk_satu_projek']);
-    Route::put('projek/{id}', [ProjekController::class, 'kemaskini_projek']);
-    Route::put('projek/{id}/gugur', [ProjekController::class, 'gugur_projek']);
-    Route::put('projek/{id}/sah', [ProjekController::class, 'sah_projek']);
+Route::middleware(['auth'])->group(function () {
 
-    Route::get('faq', [FaqController::class, 'tunjuk_senarai_faq']);
-    Route::post('faq', [FaqController::class, 'cipta_faq']);
-    Route::get('faq/{id}', [FaqController::class, 'tunjuk_satu_faq']);
-    Route::put('faq/{id}', [FaqController::class, 'kemaskini_faq']);   
-    
-    Route::get('hebahan', [HebahanController::class, 'tunjuk_senarai_hebahan']);
-    Route::post('hebahan', [HebahanController::class, 'cipta_hebahan']);
-    Route::get('hebahan/{id}', [HebahanController::class, 'tunjuk_satu_hebahan']);
-    Route::put('hebahan/{id}', [HebahanController::class, 'kemaskini_hebahan']);   
-    
-    Route::get('maklum-balas', [MaklumBalasController::class, 'tunjuk_senarai_maklum_balas']);
-    Route::post('maklum-balas', [MaklumBalasController::class, 'cipta_maklum_balas']);
-    Route::get('maklum-balas/{id}', [MaklumBalasController::class, 'tunjuk_satu_maklum_balas']);
-    Route::put('maklum-balas/{id}', [MaklumBalasController::class, 'kemaskini_maklum_balas']);   
-    
-    Route::get('manual', [ManualController::class, 'tunjuk_senarai_manual']);
-    Route::post('manual', [ManualController::class, 'cipta_manual']);
-    Route::get('manual/{id}', [ManualController::class, 'view_profile']);
-    Route::put('manual/{id}', [ManualController::class, 'view_profile']);  
+Route::get('/', [PenggunaController::class, 'tunjuk_home']);
 
-    Route::get('log', [PenggunaController::class, 'tunjuk_log']);
+Route::get('profile', [PenggunaController::class, 'tunjuk_profil']);
+Route::get('profile/senarai', [PenggunaController::class, 'tunjuk_senarai_profil']);
+Route::put('profile/{id}/peranan', [PenggunaController::class, 'tukar_peranan']);
+Route::get('profile/senarai-tukar-peranan', [PenggunaController::class, 'tunjuk_senarai_tukar_peranan']);
+
+
+Route::get('projek', [ProjekController::class, 'tunjuk_senarai_projek']);
+Route::post('projek', [ProjekController::class, 'cipta_projek']);
+Route::get('projek/{id}', [ProjekController::class, 'tunjuk_satu_projek']);
+Route::put('projek/{id}', [ProjekController::class, 'kemaskini_projek']);
+Route::put('projek/{id}/gugur', [ProjekController::class, 'gugur_projek']);
+Route::put('projek/{id}/sah', [ProjekController::class, 'sah_projek']);
+
+Route::get('faq', [FaqController::class, 'tunjuk_senarai_faq']);
+Route::post('faq', [FaqController::class, 'cipta_faq']);
+Route::get('faq/{id}', [FaqController::class, 'tunjuk_satu_faq']);
+Route::put('faq/{id}', [FaqController::class, 'kemaskini_faq']);   
+
+Route::get('hebahan', [HebahanController::class, 'tunjuk_senarai_hebahan']);
+Route::post('hebahan', [HebahanController::class, 'cipta_hebahan']);
+Route::get('hebahan/{id}', [HebahanController::class, 'tunjuk_satu_hebahan']);
+Route::put('hebahan/{id}', [HebahanController::class, 'kemaskini_hebahan']);   
+
+Route::get('maklum-balas', [MaklumBalasController::class, 'tunjuk_senarai_maklum_balas']);
+Route::post('maklum-balas', [MaklumBalasController::class, 'cipta_maklum_balas']);
+Route::get('maklum-balas/{id}', [MaklumBalasController::class, 'tunjuk_satu_maklum_balas']);
+Route::put('maklum-balas/{id}', [MaklumBalasController::class, 'kemaskini_maklum_balas']);   
+
+Route::get('manual', [ManualController::class, 'tunjuk_senarai_manual']);
+Route::post('manual', [ManualController::class, 'cipta_manual']);
+Route::get('manual/{id}', [ManualController::class, 'view_profile']);
+Route::put('manual/{id}', [ManualController::class, 'view_profile']);  
+
+Route::get('log', [PenggunaController::class, 'tunjuk_log']);
     
 
-    Route::prefix('bangunan')->group(function () {
+Route::prefix('bangunan')->group(function () {
     
-        Route::get('penilaian', [PelbagaiController::class, 'view_profile']);     
-        Route::post('penilaian', [PelbagaiController::class, 'view_profile']);  
-        Route::get('penilaian/{id}', [PelbagaiController::class, 'view_profile']);  
-        Route::put('penilaian/{id}', [PelbagaiController::class, 'view_profile']);   
-              
-        Route::get('verifikasi', [PelbagaiController::class, 'view_profile']);     
-        Route::post('verifikasi', [PelbagaiController::class, 'view_profile']);  
-        Route::get('verifikasi/{id}', [PelbagaiController::class, 'view_profile']);  
-        Route::put('verifikasi/{id}', [PelbagaiController::class, 'view_profile']);
-        
-        Route::get('validasi', [PelbagaiController::class, 'view_profile']);     
-        Route::post('validasi', [PelbagaiController::class, 'view_profile']);  
-        Route::get('validasi/{id}', [PelbagaiController::class, 'view_profile']);  
-        Route::put('validasi/{id}', [PelbagaiController::class, 'view_profile']); 
+    Route::get('penilaian', [BangunanPenilaianController::class, 'view_profile']);     
+    Route::post('penilaian', [BangunanPenilaianController::class, 'view_profile']);  
+    Route::get('penilaian/{id}', [BangunanPenilaianController::class, 'view_profile']);  
+    Route::put('penilaian/{id}', [BangunanPenilaianController::class, 'view_profile']);
+    Route::post('penilaian/{id}/sah', [BangunanPenilaianController::class, 'view_profile']);   
+    Route::post('penilaian/{id}/sijil', [BangunanPenilaianController::class, 'view_profile']);   
+    Route::post('penilaian/{id}/kertas', [BangunanPenilaianController::class, 'view_profile']);   
+    Route::post('penilaian/{id}/semak', [BangunanPenilaianController::class, 'view_profile']);   
+          
+    Route::get('verifikasi', [PelbagaiController::class, 'view_profile']);     
+    Route::post('verifikasi', [PelbagaiController::class, 'view_profile']);  
+    Route::get('verifikasi/{id}', [PelbagaiController::class, 'view_profile']);  
+    Route::put('verifikasi/{id}', [PelbagaiController::class, 'view_profile']);
+    
+    Route::get('validasi', [PelbagaiController::class, 'view_profile']);     
+    Route::post('validasi', [PelbagaiController::class, 'view_profile']);  
+    Route::get('validasi/{id}', [PelbagaiController::class, 'view_profile']);  
+    Route::put('validasi/{id}', [PelbagaiController::class, 'view_profile']); 
+    
+});
 
-        
-    
-    });
-    
-    Route::prefix('gpss')->group(function () {
-        
-    
-    });
-    
-    Route::prefix('jalan')->group(function () {
-        
-    
-    });
+Route::prefix('gpss')->group(function () {
+
+
+});
+
+Route::prefix('jalan')->group(function () {
+
+
+});
         
 });
 

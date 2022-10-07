@@ -10,7 +10,9 @@ class DokumenController extends Controller
 {
     public function upload(Request $request)
     {
-        $user_id = $request->user()->id;
+        $user = $request->user();
+        $user_id = $user->id;
+
         $dokumen = New Dokumen;
         $dokumen->user_id = $user_id;
         $dokumen->taggable_id = $request->taggable_id;
@@ -20,7 +22,12 @@ class DokumenController extends Controller
         $dokumen->url = '';
         $dokumen->save();
 
-        return Redirect::back()->with('status', 'Profile updated!');
+        activity()
+            ->performedOn($dokumen)
+            ->causedBy($user)
+            ->log('Dokumen uploaded');        
+
+        return Redirect::back()->with('status', 'Dokumen uploaded');
     }
 
     public function senarai_upload(Request $request)

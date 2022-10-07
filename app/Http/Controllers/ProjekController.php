@@ -8,26 +8,39 @@ use App\Models\Projek;
 class ProjekController extends Controller
 {
     public function tunjuk_senarai(Request $request) {
+
         $user = $request->user();
+
         if ( $user->hasRole('owner') || $user->hasRole('owner') ) {
+
             $projeks = Projek::all();
+
         } else if ($user->hasRole('owner')) {
+
             $projeks = Projek::all();
+
         } else {
+
             $projeks = Projek::all();
+            
         }               
+
         return view('projek_senarai', compact('projeks'));
     }
 
     public function tunjuk_satu(Request $request) {
+
         $id = $request->route('id');
-        $projek = Projek::find($id);         
+        $projek = Projek::find($id);   
+
         return view('projek_satu', compact('projek'));
     }
 
     public function daftar(Request $request) {
-        $projek = Projek::find($id);
+        
+        $projek = New Projek;
         $projek->save();
+
         $url = '/projek/'.$projek->id;
         return redirect($url);
     }
