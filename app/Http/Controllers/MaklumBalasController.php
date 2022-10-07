@@ -18,9 +18,7 @@ class MaklumBalasController extends Controller
             $maklum_balases = MaklumBalas::all();
         }        
 
-        return view('maklumbalas_senarai', compact([
-            'maklum_balases'
-        ]));
+        return view('maklumbalas_senarai', compact('maklum_balases'));
     }
 
     public function tunjuk_satu(Request $request) {

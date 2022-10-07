@@ -8,11 +8,14 @@ use App\Models\Hebahan;
 class HebahanController extends Controller
 {
     public function tunjuk_senarai(Request $request) {
-        return view('hebahan_senarai');
+        $hebahans = Hebahan::all();        
+        return view('hebahan_senarai', compact('hebahans'));
     }
 
     public function tunjuk_satu(Request $request) {
-        return view('hebahan_satu');
+        $id = $request->route('id');
+        $hebahan = Hebahan::find($id);
+        return view('hebahan_satu', compact('hebahan'));
     }
 
     public function tambah(Request $request) {

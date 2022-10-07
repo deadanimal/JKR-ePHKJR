@@ -8,26 +8,76 @@ use App\Models\Projek;
 class ProjekController extends Controller
 {
     public function tunjuk_senarai(Request $request) {
-        return view('projek_senarai');
+        $user = $request->user();
+        if ( $user->hasRole('owner') || $user->hasRole('owner') ) {
+            $projeks = Projek::all();
+        } else if ($user->hasRole('owner')) {
+            $projeks = Projek::all();
+        } else {
+            $projeks = Projek::all();
+        }               
+        return view('projek_senarai', compact('projeks'));
     }
 
     public function tunjuk_satu(Request $request) {
-        return view('projek_satu');
+        $id = $request->route('id');
+        $projek = Projek::find($id);         
+        return view('projek_satu', compact('projek'));
     }
 
-    public function daftar(Request $request) {}
+    public function daftar(Request $request) {
+        $projek = Projek::find($id);
+        $projek->save();
+        $url = '/projek/'.$projek->id;
+        return redirect($url);
+    }
 
-    public function pilih_pasukan(Request $request) {}
+    public function pilih_pasukan(Request $request) {
+        $id = $request->route('id');
+        $projek = Projek::find($id);       
+        $url = '/projek/'.$projek->id;
+        return redirect($url);         
+    }
 
-    public function sah_daftar(Request $request) {}
+    public function sah_daftar(Request $request) {
+        $id = $request->route('id');
+        $projek = Projek::find($id);
+        $url = '/projek/'.$projek->id;
+        return redirect($url);
+    }
 
-    public function gugur(Request $request) {}
+    public function gugur(Request $request) {
+        $id = $request->route('id');
+        $projek = Projek::find($id);
+        $url = '/projek/'.$projek->id;
+        return redirect($url);
+    }
 
-    public function tunjuk_gugur(Request $request) {}
+    public function tunjuk_gugur(Request $request) {
+        $id = $request->route('id');
+        $projek = Projek::find($id);
+        $url = '/projek/'.$projek->id;
+        return redirect($url);        
+    }
 
-    public function sah_gugur(Request $request) {}
+    public function sah_gugur(Request $request) {
+        $id = $request->route('id');
+        $projek = Projek::find($id);
+        $url = '/projek/'.$projek->id;
+        return redirect($url);        
+    }
 
-    public function kemaskini(Request $request) {}    
+    public function kemaskini(Request $request) {
+        $id = $request->route('id');
+        $projek = Projek::find($id);
+        $url = '/projek/'.$projek->id;
+        return redirect($url);         
+    }    
 
-    public function batal(Request $request) {}    
+    public function batal(Request $request) {
+        $id = $request->route('id');
+        $projek = Projek::find($id);
+        $url = '/projek/'.$projek->id;
+        return redirect($url); 
+    }    
 }

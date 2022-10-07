@@ -35,18 +35,21 @@ class PenggunaController extends Controller
     public function ubah_profil(Request $request) {}
 
     public function tunjuk_profil(Request $request) {
-        return view('pengguna.profil');
+        $user = $request->user();
+        return view('pengguna.profil', compact('user'));
     }  
     
     public function tunjuk_senarai_profil(Request $request) {
-        return view('pengguna.senarai_profil');
+        $users = User::all();
+        return view('pengguna.senarai_profil', compact('users'));
     }  
     
     public function ubah_peranan(Request $request) {}
     
     public function sah_ubah_peranan(Request $request) {}
 
-    public function tunjuk_peranan(Request $request) {
+    public function tunjuk_senarai_peranan(Request $request) {
+        $users = User::all();
         return view('pengguna.peranan');
     }         
 

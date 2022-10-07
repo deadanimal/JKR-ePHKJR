@@ -8,15 +8,17 @@ use App\Models\Faq;
 class FaqController extends Controller
 {
     public function tunjuk_senarai(Request $request) {
-        return view('faq_senarai');
+        $faqs = Faq::all();
+        return view('faq_senarai', compact('faqs'));
     }
 
     public function tunjuk_satu(Request $request) {
-        return view('faq_satu');
+        $id = $request->route('id');
+        $faq = Faq::find($id);        
+        return view('faq_satu', compact('faq'));
     }
 
     public function tambah(Request $request) {
-
         $faq = New Faq;
 
         $faq->save();
