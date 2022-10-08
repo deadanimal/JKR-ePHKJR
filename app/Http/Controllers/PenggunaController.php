@@ -8,8 +8,7 @@ use App\Models\User;
 
 class PenggunaController extends Controller
 {
-    public function tunjuk_home(Request $request)
-    {
+    public function tunjuk_home(Request $request) {
         return view('home');
     }
 
