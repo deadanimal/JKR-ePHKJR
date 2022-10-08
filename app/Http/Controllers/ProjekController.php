@@ -7,7 +7,7 @@ use App\Models\Projek;
 
 class ProjekController extends Controller
 {
-    public function tunjuk_senarai(Request $request) {
+    public function tunjuk_senarai_projek(Request $request) {
 
         $user = $request->user();
 
@@ -25,7 +25,7 @@ class ProjekController extends Controller
             
         }               
 
-        return view('projek_senarai', compact('projeks'));
+        return view('projek.senarai', compact('projeks'));
     }
 
     public function tunjuk_satu(Request $request) {

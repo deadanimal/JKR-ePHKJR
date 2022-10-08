@@ -110,7 +110,7 @@ body {
   </button>
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="/sign-out">Sign out</a>
+      <a class="nav-link px-3" href="/pengguna-logout">Sign out</a>
     </div>
   </div>
 </header>
@@ -119,7 +119,21 @@ body {
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3 sidebar-sticky">
+
         <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" >
+              Nama: {{ auth()->user()->name }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" >
+              Peranan: 
+                @foreach (auth()->user()->roles as $role)
+                    {{ $role->display_name }}
+                @endforeach              
+            </a>
+          </li>                      
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/">
               Dashboard
@@ -135,6 +149,17 @@ body {
               Profil
             </a>
           </li>
+
+            @role('admin')
+
+          <li class="nav-item">
+            <a class="nav-link" href="/profil">
+              Profil
+            </a>
+          </li> 
+
+            @endrole                   
+
         </ul>
       </div>
     </nav>

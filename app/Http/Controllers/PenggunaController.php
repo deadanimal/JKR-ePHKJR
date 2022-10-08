@@ -65,6 +65,12 @@ class PenggunaController extends Controller
     public function tunjuk_senarai_peranan(Request $request) {
         $users = User::all();
         return view('pengguna.peranan');
-    }         
+    }    
+    
+    public function pengguna_logout(Request $request) {
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');        
+    }
 
 }
