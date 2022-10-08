@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Pengguna;
 use App\Models\User;
 
@@ -24,7 +25,16 @@ class PenggunaController extends Controller
 
     public function sahkan_pengguna(Request $request) {}
 
-    public function pengguna_login(Request $request) {}
+    public function pengguna_login(Request $request) {
+        $credentials = $request->only('nric', 'password');
+        if (Auth::attempt($credentials)) {
+            
+            return redirect('/');
+        } else {
+            return Redirect::back()->withErrors(['msg' => 'Login Fail']);
+
+        }    
+    }
 
     public function tunjuk_login(Request $request) {
         return view('pengguna.login');

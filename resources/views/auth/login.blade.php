@@ -1,6 +1,6 @@
-<form method="POST" action="{{ route('login') }}">
+<form method="POST" action="/pengguna-login">
     @csrf
-    <input type="text" name="icPengguna" placeholder="nric">
+    <input type="text" name="nric" placeholder="nric">
     <input class="form-control" type="password" name="password" required autocomplete="current-password" placeholder="password"/>
-    <button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">Log Masuk</button>    
+    <button type="submit" name="submit">Log Masuk</button>    
 </form>

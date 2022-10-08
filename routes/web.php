@@ -24,6 +24,7 @@ use App\Http\Controllers\JalanVerifikasiController;
 use App\Http\Controllers\BangunanValidasiController;
 
 
+Route::post('/pengguna-login', [PenggunaController::class, 'pengguna_login']);
 
 
 Route::middleware(['auth'])->group(function () {
