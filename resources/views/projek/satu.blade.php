@@ -203,10 +203,10 @@
 <div>
     GPSS Bangunan
     <div>
-        <a href="/projek/{{id}}/gpss/arkitek" class="btn btn-primary"> arkitek</a>
-        <a href="/projek/{{id}}/gpss/elektrikal" class="btn btn-primary"> elektrikal</a>
-        <a href="/projek/{{id}}/gpss/mekanikal" class="btn btn-primary"> mekanikal</a>
-        <a href="/projek/{{id}}/gpss/sivil" class="btn btn-primary"> sivil</a>
+        <a href="/projek/satu/gpss/arkitek" class="btn btn-primary"> arkitek</a>
+        <a href="/projek/satu/gpss/elektrikal" class="btn btn-primary"> elektrikal</a>
+        <a href="/projek/satu/gpss/mekanikal" class="btn btn-primary"> mekanikal</a>
+        <a href="/projek/satu/gpss/sivil" class="btn btn-primary"> sivil</a>
         <!-- <a href="#" class="btn btn-primary"> Building Category 1</a>
         <a href="#" class="btn btn-primary"> Building Category 2</a>
         <a href="#" class="btn btn-primary"> Building Category 3</a> -->
