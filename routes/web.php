@@ -39,11 +39,18 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get('projek', [ProjekController::class, 'tunjuk_senarai_projek']);
+    Route::get('projek/cipta', [ProjekController::class, 'cipta_satu_projek']);
     Route::post('projek', [ProjekController::class, 'cipta_projek']);
     Route::get('projek/{id}', [ProjekController::class, 'tunjuk_satu_projek']);
     Route::put('projek/{id}', [ProjekController::class, 'kemaskini_projek']);
     Route::put('projek/{id}/gugur', [ProjekController::class, 'gugur_projek']);
     Route::put('projek/{id}/sah', [ProjekController::class, 'sah_projek']);
+
+    Route::get('projek/{id}/gpss/arkitek', [ProjekController::class, 'tunjuk_gpss_arkitek']);
+    Route::get('projek/{id}/gpss/elektrikal', [ProjekController::class, 'tunjuk_gpss_elektrikal']);
+    Route::get('projek/{id}/gpss/mekanikal', [ProjekController::class, 'tunjuk_gpss_mekanikal']);
+    Route::get('projek/{id}/gpss/sivil', [ProjekController::class, 'tunjuk_gpss_sivil']);
+
 
     Route::get('faq', [FaqController::class, 'tunjuk_senarai_faq']);
     Route::post('faq', [FaqController::class, 'cipta_faq']);
