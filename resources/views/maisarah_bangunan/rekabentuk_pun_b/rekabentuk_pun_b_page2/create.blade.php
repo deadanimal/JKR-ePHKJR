@@ -371,7 +371,7 @@
                         <tr class="pg-2" align="center">
                             <th colspan="6">Jumlah markah KT</th>
                             <td colspan="3">30</td>
-                            <td><input id="totalMR_KT_PUN" type="number" min="0" max="54" autocapitalize="off" id="markahTOTAL_KT_MR_PUN" name="markahTOTAL_KT_MR_PUN"/></td>
+                            <td><input id="totalMR_KT_PUN" type="number" min="0" max="30" autocapitalize="off" id="markahTOTAL_KT_MR_PUN" name="markahTOTAL_KT_MR_PUN"/></td>
                             <td colspan="9"></td>
                         </tr> 
                 </table>
@@ -535,4 +535,3 @@
                 });
             </script>
 @endsection
-
