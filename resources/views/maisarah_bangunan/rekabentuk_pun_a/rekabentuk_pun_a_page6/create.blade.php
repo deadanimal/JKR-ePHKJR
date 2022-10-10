@@ -273,8 +273,8 @@
                         <!-- Jumlah MarkahFL-->
                         <tr class="pg-6" align="center">
                             <td colspan="6">Jumlah markah FL</td>
-                            <td colspan="3"></td>
-                            <td></td>
+                            <td colspan="3">0</td>
+                            <td>0</td>
                             <td colspan="9"></td>
                         </tr>  
                 </table>
@@ -438,4 +438,3 @@
                 });
             </script>
 @endsection
-
