@@ -365,7 +365,7 @@
 
                 function findTotalMR_PA_PUN(){
                     var totalMR_PA_PUN = document.getElementById('totalMR_PA_PUN');
-                    var MR_PA = document.getElementsByClassName('MR_PA_PUN');
+                    var MR_PA_PUN = document.getElementsByClassName('MR_PA_PUN');
                     var sumMR_PA_PUN = 0;
 
                     for( var i = 0; i < MR_PA_PUN.length; i++ ){
